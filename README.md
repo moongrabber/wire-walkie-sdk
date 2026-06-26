@@ -1,12 +1,13 @@
 # wire-walkie-sdk
 
-Shared Swift SDK for wire-walkie clients.
+Shared client library for wire-walkie apps — platform-agnostic design,
+reference implementations in Swift, Kotlin, and TypeScript.
 
 ## Status
 
 🚧 **Work in progress — no code yet.**
 
-This SDK will be extracted from the first working client
+This library will be extracted from the first working client
 ([wire-walkie-swift](https://github.com/moongrabber/wire-walkie-swift))
 once the patterns have proven themselves in production.
 
@@ -15,18 +16,25 @@ once the patterns have proven themselves in production.
 - **Yodel HTTP client** — `POST /v1/chat/completions` with SSE stream parsing
 - **Pairing** — Sound-QR device registration and per-device secret management
 - **Session management** — persistent session IDs across requests
-- **TTS** — on-device (AVSpeechSynthesizer) with optional gateway audio fallback
+- **TTS** — on-device text-to-speech with optional gateway audio fallback
 - **Error handling** — retry, backoff, timeout policies
 - **Configuration** — endpoint discovery via `/.well-known/yodel.json`
 
+## Language targets (planned)
+
+| Language | Status | First consumer |
+|----------|--------|---------------|
+| Swift | 🚧 after MVP | wire-walkie-swift (iOS) |
+| Kotlin | 🔮 planned | wire-walkie-android |
+| TypeScript | 🔮 planned | wire-walkie-web (PWA) |
+
 ## Why not now?
 
-The first client (wire-walkie-swift) implements the HTTP+SSE logic
-inline — ~200 lines of straightforward Swift. Extracting a library
-before the patterns are battle-tested is premature abstraction.
+The first client implements the HTTP+SSE logic inline — ~200 lines
+of straightforward code. Extracting a library before the patterns
+are battle-tested is premature abstraction.
 
-Once a second client needs the same logic (e.g. wire-walkie-android,
-macOS widget, CLI tool), the shared code will move here.
+Once a second client needs the same logic, the shared code moves here.
 
 ## Related
 
